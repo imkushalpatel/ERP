@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ERP</string>
+    <string name="title_activity_login">ERP</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="spnpro">Select Project..</string>
+    <string name="server">http://192.168.2.33/</string>
+    <string name="project">/ierp/index.php/</string>
+    <string name="getprojects">http://192.168.1.33/ierp/index.php/mobile/getprojects/</string>
+    <string name="getheads">http://192.168.1.33/ierp/index.php/mobile/getprojectheads/</string>
+    <string name="getcat">http://192.168.1.33/ierp/index.php/mobile/getcategory/</string>
+    <string name="getloc">http://192.168.1.33/ierp/index.php/mobile/getlocation/</string>
+    <string name="getdate">http://192.168.1.33/ierp/index.php/mobile/getdate/</string>
+</resources>
