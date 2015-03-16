@@ -8,11 +8,11 @@
     <string name="spnpro">Select Project..</string>
     <string name="server">http://192.168.1.7/</string>
     <string name="project">/ierp/index.php/</string>
-    <string name="getprojects">http://192.168.1.180/ierp/index.php/mobile/getprojects/</string>
-    <string name="getheads">http://192.168.1.180/ierp/index.php/mobile/getprojectheads/</string>
-    <string name="getcat">http://192.168.1.180/ierp/index.php/mobile/getcategory/</string>
-    <string name="getloc">http://192.168.1.180/ierp/index.php/mobile/getlocation/</string>
-    <string name="getdate">http://192.168.1.180/ierp/index.php/mobile/getdate/</string>
-    <string name="insertdata">http://192.168.1.180/ierp/index.php/mobile/insertdailywork/</string>
+    <string name="getprojects">http://192.168.2.33/ierp/index.php/mobile/getprojects/</string>
+    <string name="getheads">http://192.168.2.33/ierp/index.php/mobile/getprojectheads/</string>
+    <string name="getcat">http://192.168.2.33/ierp/index.php/mobile/getcategory/</string>
+    <string name="getloc">http://192.168.2.33/ierp/index.php/mobile/getlocation/</string>
+    <string name="getdate">http://192.168.2.33/ierp/index.php/mobile/getdate/</string>
+    <string name="insertdata">http://192.168.2.33/ierp/index.php/mobile/insertdailywork/</string>
     <string name="title_activity_day_wise">DayWise</string>
 </resources>

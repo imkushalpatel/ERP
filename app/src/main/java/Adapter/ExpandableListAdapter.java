@@ -1,4 +1,4 @@
-package com.sample.erp;
+package Adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
+
+import com.sample.erp.R;
 
 import java.util.ArrayList;
 

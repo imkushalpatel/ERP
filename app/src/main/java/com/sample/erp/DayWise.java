@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -18,6 +19,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import Adapter.ExpandableListAdapter;
 import Data.DayWiseGroup;
 import Data.DayWiseList;
 
@@ -29,12 +31,20 @@ public class DayWise extends ActionBarActivity {
 
     JSONObject object;
     JSONParser jsonParser = new JSONParser();
+    TextView txtdead, txtrrr, txttotal, txt1, txt2, txt3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_wise);
         expListView = (ExpandableListView) findViewById(R.id.expandableListView);
+        txtdead = (TextView) findViewById(R.id.txtDead);
+        txtrrr = (TextView) findViewById(R.id.txtRRR);
+        txttotal = (TextView) findViewById(R.id.txtTotal);
+        txt1 = (TextView) findViewById(R.id.textView10);
+        txt2 = (TextView) findViewById(R.id.textView9);
+        txt3 = (TextView) findViewById(R.id.textView8);
+
         final AutoCompleteTextView atxt = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView2);
 
         List<String> list = new ArrayList<String>();
@@ -49,8 +59,18 @@ public class DayWise extends ActionBarActivity {
 
                     expListView.setAdapter(listAdapter);
                     expListView.setVisibility(View.VISIBLE);
+                    txt1.setVisibility(View.VISIBLE);
+                    txt2.setVisibility(View.VISIBLE);
+                    txt3.setVisibility(View.VISIBLE);
+
                 } else {
                     expListView.setVisibility(View.INVISIBLE);
+                    txt1.setVisibility(View.INVISIBLE);
+                    txt2.setVisibility(View.INVISIBLE);
+                    txt3.setVisibility(View.INVISIBLE);
+                    txttotal.setText("");
+                    txtdead.setText("");
+                    txtrrr.setText("");
 
                 }
             }
@@ -84,7 +104,7 @@ public class DayWise extends ActionBarActivity {
     private boolean prepareListData(String param) {
         listDataHeader = new ArrayList<DayWiseGroup>();
 
-        object = jsonParser.getJSONFromUrl("http://192.168.1.180/ierp/index.php/mobile/getdata/" + param);
+        object = jsonParser.getJSONFromUrl("http://192.168.2.33/ierp/index.php/mobile/getdata/" + param);
         try {
             if (object.getBoolean("status")) {
                 JSONArray jsonArray = object.getJSONArray("Overheads");
@@ -99,8 +119,11 @@ public class DayWise extends ActionBarActivity {
                     listDataHeader.add(new DayWiseGroup(object1.getString("month"), object1.getString("sum"), listDataChild));
                 }
                 ArrayList<DayWiseList> listDataChild = new ArrayList<DayWiseList>();
-                listDataChild.add(new DayWiseList("Total", object.getString("total")));
-                listDataHeader.add(new DayWiseGroup("Total", object.getString("total"), listDataChild));
+                listDataChild.add(new DayWiseList("Total", object.getString("totaldone")));
+                listDataHeader.add(new DayWiseGroup("Total", object.getString("totaldone"), listDataChild));
+                txtdead.setText(object.getString("deadline"));
+                txtrrr.setText(object.getString("rrr"));
+                txttotal.setText(object.getString("totalreq"));
                 return true;
             } else {
                 Toast.makeText(DayWise.this, "No Data Available", Toast.LENGTH_LONG).show();

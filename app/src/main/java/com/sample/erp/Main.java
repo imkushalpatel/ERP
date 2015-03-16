@@ -31,7 +31,7 @@ public class Main extends ActionBarActivity {
     Spinner spn1, spn2, spn3;
     AutoCompleteTextView spn;
     DatePicker dp;
-    Button btn, btn1;
+    Button btn, btn1, btn2;
     EditText et, et1;
     JSONParser jsonParser = new JSONParser();
     List<String> list, list1, list2, list3 = new ArrayList<String>();
@@ -51,6 +51,7 @@ public class Main extends ActionBarActivity {
         dp = (DatePicker) findViewById(R.id.datePicker);
         btn = (Button) findViewById(R.id.button);
         btn1 = (Button) findViewById(R.id.button2);
+        btn2 = (Button) findViewById(R.id.btndelay);
         et = (EditText) findViewById(R.id.editText);
         et1 = (EditText) findViewById(R.id.editText2);
 
