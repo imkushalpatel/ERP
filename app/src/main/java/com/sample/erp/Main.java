@@ -1,5 +1,7 @@
 package com.sample.erp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -63,6 +65,7 @@ public class Main extends ActionBarActivity {
 
         Calendar date = Calendar.getInstance();
         try {
+            Log.i("Date", obj.getString("Date"));
             date.setTime(df.parse(obj.getString("Date")));
 
         } catch (ParseException e) {
@@ -121,6 +124,31 @@ public class Main extends ActionBarActivity {
                     Toast.makeText(getApplicationContext(), "Data Saved Successfully.....", Toast.LENGTH_LONG).show();
                 } else
                     Toast.makeText(getApplicationContext(), "Operation Failed", Toast.LENGTH_LONG).show();
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Main.this);
+// Add the buttons
+                builder.setPositiveButton("Project Wise", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+                    }
+                });
+                builder.setNegativeButton("Category Wise", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User cancelled the dialog
+                    }
+                });
+
+// Set other dialog properties
+                builder.setTitle("Select View Type");
+
+// Create the AlertDialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
             }
         });
 
