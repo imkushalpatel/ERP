@@ -104,10 +104,10 @@ public class DayWise extends ActionBarActivity {
     private boolean prepareListData(String param) {
         listDataHeader = new ArrayList<DayWiseGroup>();
 
-        object = jsonParser.getJSONFromUrl("http://192.168.2.33/ierp/index.php/mobile/getdata/" + param);
+        object = jsonParser.getJSONFromUrl("http://192.168.2.33/ierp/index.php/mobile/getdaylist/" + param);
         try {
             if (object.getBoolean("status")) {
-                JSONArray jsonArray = object.getJSONArray("Overheads");
+                JSONArray jsonArray = object.getJSONArray(param);
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject object1 = jsonArray.getJSONObject(i);
                     JSONArray jsonArray1 = object1.getJSONArray("list");

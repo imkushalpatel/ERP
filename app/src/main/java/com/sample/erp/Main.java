@@ -3,6 +3,7 @@ package com.sample.erp;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -106,46 +107,57 @@ public class Main extends ActionBarActivity {
             public void onClick(View v) {
                 String dt = dp.getYear() + "-" + (dp.getMonth() + 1) + "-" + dp.getDayOfMonth();
                 Log.i("Date", dt);
-                JSONObject ob = jsonParser.getJSONFromUrl(getApplicationContext().getString(R.string.insertdata) +
-                        spn.getText().toString() + '/' +
-                        spn1.getSelectedItem().toString() + '/' +
-                        spn2.getSelectedItem().toString() + '/' +
-                        spn3.getSelectedItem().toString() + '/' +
-                        dt + '/' +
-                        et.getText() + '/' +
-                        et1.getText());
-                String status = null;
+                JSONObject ob = null;
                 try {
+                    String url = getApplicationContext().getString(R.string.insertdata) +
+                            Uri.encode(spn.getText().toString()) + '/' +
+                            Uri.encode(spn1.getSelectedItem().toString()) + '/' +
+                            Uri.encode(spn2.getSelectedItem().toString()) + '/' +
+                            Uri.encode(spn3.getSelectedItem().toString()) + '/' +
+                            dt + '/' +
+                            et.getText().toString() + '/' +
+                            Uri.encode(et1.getText().toString());
+                    Log.i("Url", url);
+                    ob = jsonParser.getJSONFromUrl(url);
+
+
+                    String status = null;
+
                     status = ob.getString("status");
+                    if (status.equals("ok")) {
+                        Toast.makeText(getApplicationContext(), "Data Saved Successfully.....", Toast.LENGTH_LONG).show();
+                    } else
+                        Toast.makeText(getApplicationContext(), "Operation Failed", Toast.LENGTH_LONG).show();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                if (status.equals("ok")) {
-                    Toast.makeText(getApplicationContext(), "Data Saved Successfully.....", Toast.LENGTH_LONG).show();
-                } else
-                    Toast.makeText(getApplicationContext(), "Operation Failed", Toast.LENGTH_LONG).show();
             }
+
         });
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Main.this);
-// Add the buttons
+
                 builder.setPositiveButton("Project Wise", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // User clicked OK button
+                        Intent i = new Intent(Main.this, DelayListView.class);
+                        i.putExtra("Proj", true);
+                        startActivity(i);
                     }
                 });
                 builder.setNegativeButton("Category Wise", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // User cancelled the dialog
+                        Intent i = new Intent(Main.this, DelayListView.class);
+                        i.putExtra("Proj", false);
+                        startActivity(i);
                     }
                 });
 
-// Set other dialog properties
+
                 builder.setTitle("Select View Type");
 
-// Create the AlertDialog
                 AlertDialog dialog = builder.create();
                 dialog.show();
 

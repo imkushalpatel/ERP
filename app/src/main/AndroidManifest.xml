@@ -22,7 +22,7 @@
             android:name=".DayWise"
             android:label="@string/title_activity_day_wise" />
         <activity
-            android:name=".DelayList"
+            android:name=".DelayListView"
             android:label="@string/title_activity_delay_list"></activity>
     </application>
 
