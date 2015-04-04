@@ -1335,8 +1335,8 @@ containing a value of this type.
         public static final int dropdown=0x7f08001c;
         public static final int editText=0x7f08005c;
         public static final int editText2=0x7f08005e;
-        public static final int editText3=0x7f080049;
-        public static final int editText4=0x7f08004d;
+        public static final int editText3=0x7f08004c;
+        public static final int editText4=0x7f080049;
         public static final int edit_query=0x7f080033;
         public static final int end=0x7f080014;
         public static final int expand_activities_button=0x7f080022;
@@ -1349,7 +1349,7 @@ containing a value of this type.
         public static final int image=0x7f080023;
         public static final int li=0x7f080050;
         public static final int listMode=0x7f080009;
-        public static final int listView=0x7f08004b;
+        public static final int listView=0x7f08004e;
         public static final int list_item=0x7f080025;
         public static final int middle=0x7f080015;
         public static final int never=0x7f080019;
@@ -1385,8 +1385,8 @@ containing a value of this type.
         public static final int textView11=0x7f080062;
         public static final int textView12=0x7f080063;
         public static final int textView13=0x7f080048;
-        public static final int textView14=0x7f08004e;
-        public static final int textView15=0x7f08004c;
+        public static final int textView14=0x7f08004b;
+        public static final int textView15=0x7f08004d;
         public static final int textView2=0x7f080053;
         public static final int textView3=0x7f080056;
         public static final int textView4=0x7f080058;

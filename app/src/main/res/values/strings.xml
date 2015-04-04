@@ -16,5 +16,5 @@
     <string name="getdate">http://192.168.2.33/ierp/index.php/mobile/getdate/</string>
     <string name="insertdata">http://192.168.2.33/ierp/index.php/mobile/insertdailywork/</string>
     <string name="title_activity_day_wise">DayWise</string>
-    <string name="title_activity_delay_list">DelayListView</string>
+    <string name="title_activity_delay_list">DelayReason</string>
 </resources>
